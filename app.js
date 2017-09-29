@@ -18,7 +18,7 @@ fs.readdir(dir,(err,files)=>{
       <div>${data}</div>
       </body></html>
       `;
-  
+      
       fs.writeFile('build/page'+`${counter}`+'.html',template.trim(), 'utf8', err=>{
         if(err) console.log(err);
       });
@@ -42,21 +42,22 @@ fs.readdir(build,(err,files)=>{
 
 var input=cache.toString();
 
-
+var links=[];
+for(let i=0;i<cache.length;i++){
+  links.push('<li>'+JSON.stringify(cache[i])+'</li>');
+}
+ links.prototype.replace(',',' '); 
 var index=`
       <html>
-      <body>
-    <ol>${input} </ol>
+      <body><ol>
+    ${links} </ol>
       </body></html>
       `;
-      
                 fs.writeFile('build/index.html',index.trim(),'utf8',err=>{
   if(err)console.log(err);
   
   });
   // endwriteindex
-  
-
 });
 // endreadbuild
 
