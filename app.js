@@ -39,9 +39,10 @@ fs.readdir(build,(err,files)=>{
     cache.push(loc);
   });
   // endforeach
-      console.log(cache);
 
-var input=JSON.stringify(cache.toString());
+var input=cache.toString();
+
+
 var index=`
       <html>
       <body>
@@ -53,6 +54,7 @@ var index=`
   if(err)console.log(err);
   
   });
+  // endwriteindex
   
 
 });
