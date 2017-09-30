@@ -41,12 +41,24 @@ fs.readdir(build,(err,files)=>{
   // endforeach
 
 var input=cache.toString();
+var newchar ="\n ";
+input=input.split(',').join(newchar);
+// console.log(input);
+
+// var list=[];
+// for(let i=0;i<input.length;i++){
+// list.push ('<li>'+JSON.stringify(input[i])+'</li>')
+// }
 
 var links=[];
 for(let i=0;i<cache.length;i++){
   links.push('<li>'+JSON.stringify(cache[i])+'</li>');
 }
- links.prototype.replace(',',' '); 
+
+// var list=links.toString();
+// list.split(',').join(newchar);
+// console.log(list);
+// links.prototype.replace(',',' '); 
 var index=`
       <html>
       <body><ol>
