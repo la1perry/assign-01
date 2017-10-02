@@ -35,14 +35,14 @@ fs.readdir(build,(err,files)=>{
   if(err)console.log(err);
   
   files.forEach((file)=>{
-    let loc=('build/'+path.basename(file));
+    let loc=(path.basename(file));
     cache.push(loc);
   });
   // endforeach
 
-var input=cache.toString();
-var newchar ="\n ";
-input=input.split(',').join(newchar);
+// var input=cache.toString();
+// var newchar ="";
+// input=input.split(',').join(newchar);
 // console.log(input);
 
 // var list=[];
@@ -52,17 +52,17 @@ input=input.split(',').join(newchar);
 
 var links=[];
 for(let i=0;i<cache.length;i++){
-  links.push('<li>'+JSON.stringify(cache[i])+'</li>');
+  links.push('<li><a href="'+cache[i]+'">'+cache[i]+'</a></li>');
 }
+  console.log(links);
 
-// var list=links.toString();
-// list.split(',').join(newchar);
-// console.log(list);
-// links.prototype.replace(',',' '); 
+ var list=links.join(" ");
+
+
 var index=`
       <html>
       <body><ol>
-    ${links} </ol>
+    ${list} </ol>
       </body></html>
       `;
                 fs.writeFile('build/index.html',index.trim(),'utf8',err=>{
